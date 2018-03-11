@@ -6,13 +6,13 @@ SEARCH_TOPIC = 'SpaceX'
 START_DATE = "2016-10-13"
 END_DATE = "2016-10-14"
 FETCH_COUNT = 100
-DATEFETCH = True
+DATEFETCH = False
 
 def tweeterAuth():
-    consumer_key = "7lvPp6Kvlhyke8Q75zXEC4TPB"
-    consumer_secret = "dpW54sRvbYfHqga5mdhkPBoJF1XZ6A5hBP75L12GQR7frhtsxl"
-    access_token = "1632125832-YRzwh8OFuT74WKGtGCpwZlbD2sX032Hz5ASoFdP"
-    access_token_secret = "cgRGvvq1EiITlv4OKi47BJAcuWYPGQLnnxKnLGCGVUTKa"
+    consumer_key = "CONSUMER KEY"
+    consumer_secret = "CONSUMER SECRET"
+    access_token = "ACCESS TOKEN"
+    access_token_secret = "ACCESS TOKEN SECRET"
 
     auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
