@@ -1,11 +1,11 @@
 import tweepy
 from textblob import TextBlob
 import csv
+from sys import argv
 
-SEARCH_TOPIC = 'SpaceX'
+
 START_DATE = "2016-10-13"
 END_DATE = "2018-02-14"
-FETCH_COUNT = 100
 DATEFETCH = False
 
 def tweeterAuth():
@@ -62,16 +62,22 @@ def Print_and_Save(public_tweets):
         print('')
         writer.writerow({ 'Serial': count,'Tweet': tweet.text.encode('utf8'), 'Label': result })
     return num_neu,num_neg,num_pos
-
-if __name__== "__main__":
-
+def main(argv):
+    SEARCH_TOPIC = argv[1]
+    FETCH_COUNT = argv[2]
     api = tweeterAuth()
     public_tweets = SearchTweetTopic(api,SEARCH_TOPIC,FETCH_COUNT,START_DATE,END_DATE,DATEFETCH)
     num_neu,num_neg,num_pos = Print_and_Save(public_tweets)
+
+    print('Total Tweets Collected = ' + str(FETCH_COUNT))
     print('----------------------------')
     print('Neutral = '+str(num_neu))
     print('Negative = '+str(num_neg))
     print('Positive = '+str(num_pos))
     print('----------------------------')
+
+if __name__== "__main__":
+    main(argv)
+
 
 breakPoint=1
